@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Churn Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f4f8; /* lighter background */
+        }
+    </style>
+</head>
+<body class="container py-4">
+    <h1 class="mb-4 text-center">📊 Customer Churn Prediction</h1>
+
+    <form action="/predict" method="post">
+        <!-- Row 1: Tenure, Monthly Charges, Total Charges, Internet Service -->
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <label class="form-label">Tenure (months)</label>
+                <input type="number" class="form-control" name="tenure" min="0" required>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Monthly Charges</label>
+                <input type="number" class="form-control" name="MonthlyCharges" min="0" step="1" required>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Total Charges</label>
+                <input type="number" class="form-control" name="TotalCharges" min="0" step="1" required>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Internet Service</label>
+                <select class="form-select" name="InternetService">
+                    <option value="No">No</option>
+                    <option value="Fiber optic">Fiber Optic</option>
+                    <option value="DSL">DSL</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Row 2: Gender, Partner, Dependents, Senior Citizen -->
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <label class="form-label">Gender</label>
+                <select class="form-select" name="Gender">
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Partner</label>
+                <select class="form-select" name="Partner">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Dependents</label>
+                <select class="form-select" name="Dependents">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Senior Citizen</label>
+                <select class="form-select" name="SeniorCitizen" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Row 3: Contract, Paperless Billing, Payment Method, Phone Service -->
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <label class="form-label">Contract</label>
+                <select class="form-select" name="Contract">
+                    <option value="Month-to-month">Month-to-month</option>
+                    <option value="One year">One year</option>
+                    <option value="Two year">Two year</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Paperless Billing</label>
+                <select class="form-select" name="PaperlessBilling">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Payment Method</label>
+                <select class="form-select" name="PaymentMethod">
+                    <option value="Bank transfer">Bank Transfer</option>
+                    <option value="Electronic check">Electronic Check</option>
+                    <option value="Credit card (automatic)">Credit Card (automatic)</option>
+                    <option value="Mailed check">Mailed Check</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Phone Service</label>
+                <select class="form-select" name="PhoneService">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Row 4: Multiple Lines, Online Security, Online Backup, Device Protection -->
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <label class="form-label">Multiple Lines</label>
+                <select class="form-select" name="MultipleLines">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No phone service">No phone service</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Online Security</label>
+                <select class="form-select" name="OnlineSecurity">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No internet service">No internet service</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Online Backup</label>
+                <select class="form-select" name="OnlineBackup">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No internet service">No internet service</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Device Protection</label>
+                <select class="form-select" name="DeviceProtection">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No internet service">No internet service</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Row 5: Tech Support, Streaming TV, Streaming Movies -->
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label class="form-label">Tech Support</label>
+                <select class="form-select" name="TechSupport">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No internet service">No internet service</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Streaming TV</label>
+                <select class="form-select" name="StreamingTV">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No internet service">No internet service</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Streaming Movies</label>
+                <select class="form-select" name="StreamingMovies">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No internet service">No internet service</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg">Predict Churn</button>
+        </div>
+    </form>
+
+    {% if churn_prediction is defined %}
+        <div class="alert alert-info mt-4">
+            <h4>Prediction Result</h4>
+            <p><strong>Churn Prediction:</strong> {{ churn_prediction }}</p>
+            <p><strong>Churn Probability:</strong> {{ churn_probability }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
