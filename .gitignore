@@ -1,28 +1,29 @@
-# Virtual environment
-.venv/
-env/
-venv/
-
-# Python cache
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+env/
+venv/
 
-# Jupyter Notebook checkpoints
+# Jupyter
 .ipynb_checkpoints/
-
-# Data files (large or sensitive)
-data/raw/*
-data/processed/*
-
-# Logs
-*.log
 
 # OS files
 .DS_Store
 Thumbs.db
 
-# Model files (optional, if large)
+# Environment variables
+.env
+
+# Model files
+*.pkl
 *.joblib
+
+# Logs
+*.log
+
+# Tableau temp
+*.hyper.tmp
+*.twbr.tmp
 *.pkl
