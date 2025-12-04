@@ -1,0 +1,15 @@
+
+---
+
+### 📄 Root `requirements.txt`
+
+```txt
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+imblearn
+flask
+pickle
+joblib
