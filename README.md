@@ -66,10 +66,8 @@ Accepts customer data and returns:
   "churn_probability": 0.82
 }
 
-
-## 👨‍💻 How to Run Flask App
-```bash
 cd flask_app
 python app.py
+
 
 
