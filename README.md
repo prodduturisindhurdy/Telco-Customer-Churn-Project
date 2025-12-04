@@ -1,39 +1,75 @@
-# Telco-Customer-Churn-Project
-Machine Learning + Tableau + Flask churn prediction project
-# 📊 Telco Customer Churn Prediction
+# 📉 Telco Customer Churn Prediction
 
-This project predicts customer churn using Machine Learning and visualizes business impact with Tableau dashboards.
+This project predicts customer churn for a telecom company using Machine Learning and visualizes insights using Tableau. It also includes a Flask API for real-time predictions and a structured SQL database design.
 
-## 🚀 Tools & Technologies
-- Python
-- Scikit-learn
-- SMOTE
-- AdaBoost Classifier
-- Flask API
-- Tableau
-- Pandas, NumPy, Matplotlib
+---
 
-## 🔍 Project Workflow
-1. Data Cleaning & EDA
-2. Feature Engineering
-3. Model Training with SMOTE
-4. Churn Predictions using AdaBoost
-5. Flask API for real-time predictions
-6. Tableau dashboards (Before & After ML)
+## 🚀 Project Overview
 
-## 📈 Model Performance
-- Accuracy: 78%
-- Recall (Churn): 74%
-- Precision (Churn): 56%
+Customer churn occurs when customers stop using a company’s service. Reducing churn can significantly increase profitability.
 
-## 📊 Dashboards
-- **Before ML** – Customer segmentation & revenue analysis
-- **After ML** – Churn prediction, risk segments & revenue loss
+In this project, I:
+
+✅ Analyzed churn patterns  
+✅ Built Machine Learning models  
+✅ Applied SMOTE for class imbalance  
+✅ Used AdaBoost as final model  
+✅ Built Flask API  
+✅ Created Tableau dashboards  
+✅ Designed SQL schema + ER Diagram  
+
+---
+
+## 🧠 Machine Learning
+
+Final Model: **AdaBoost + SMOTE**
+
+| Metric | Score |
+|------|------|
+| Accuracy | **78%** |
+| Precision (Churn) | **0.56** |
+| Recall (Churn) | **0.74** |
+| F1-score (Churn) | **0.64** |
+| ROC-AUC | **0.75** |
+
+Reason selected: Best balance between **recall** and **accuracy** for minority class (churn customers).
+
+---
+
+## 📊 Dashboards (Tableau)
+
+### 1. Before ML (Exploratory)
+- Total customers
+- Churn %
+- Monthly charges impact
+- Contract type distribution
+- Payment method
+
+### 2. After ML (Prediction-Based)
+- Predicted churn rate
+- Risk segmentation
+- **Top 10 high risk customers**
+- **Revenue loss estimate**
+- High risk segments
+
+---
+
+## 🌐 Flask API
+
+Endpoint:
+
+Accepts customer data and returns:
+
+```json
+{
+  "churn_prediction": "Yes",
+  "churn_probability": 0.82
+}
+
 
 ## 👨‍💻 How to Run Flask App
 ```bash
 cd flask_app
-pip install -r requirements.txt
 python app.py
 
 
