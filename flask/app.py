@@ -5,6 +5,7 @@ import numpy as np
 app = Flask(__name__)
 model = joblib.load("model.pkl")
 
+
 @app.route('/')
 def home():
     return render_template("index.html")
@@ -108,7 +109,7 @@ def predict():
     return render_template(
         "index.html",
         churn_prediction=int(prediction),
-        churn_probability=float(probability)
+        churn_probability=round(float(probability),4)
     )
 
 if __name__ == '__main__':
